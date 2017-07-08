@@ -1,5 +1,6 @@
 ﻿using Net.Chdk.Meta.Model.CameraList;
 using Net.Chdk.Meta.Providers.Csv;
+using System;
 using System.Collections.Generic;
 
 namespace Net.Chdk.Meta.Providers.CameraList.Csv
@@ -9,6 +10,14 @@ namespace Net.Chdk.Meta.Providers.CameraList.Csv
         public IDictionary<string, ListPlatformData> GetCameraList(string path)
         {
             return GetCameras(path);
+        }
+
+        protected override ListRevisionData GetRevisionData(string[] split)
+        {
+            var revision = base.GetRevisionData(split);
+            revision.Skip = "SKIP_AUTOBUILD".Equals(split[4], StringComparison.InvariantCulture);
+            revision.Status = split[2].ToLowerInvariant();
+            return revision;
         }
     }
 }

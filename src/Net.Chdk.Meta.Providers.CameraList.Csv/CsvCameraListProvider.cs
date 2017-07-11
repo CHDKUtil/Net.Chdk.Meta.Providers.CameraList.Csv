@@ -7,7 +7,7 @@ namespace Net.Chdk.Meta.Providers.CameraList.Csv
 {
     sealed class CsvCameraListProvider : CsvCameraProvider<ListPlatformData, ListRevisionData, ListSourceData>, ICameraListProvider
     {
-        public IDictionary<string, ListPlatformData> GetCameraList(string path)
+        public IDictionary<string, ListPlatformData> GetCameraList(string path, string productName)
         {
             return GetCameras(path);
         }

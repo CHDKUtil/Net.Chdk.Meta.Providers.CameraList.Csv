@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Net.Chdk.Meta.Providers.CameraList.Csv
 {
-    sealed class CsvCameraListProvider : CsvCameraProvider<ListPlatformData, ListRevisionData, ListSourceData>, ICameraListProvider
+    sealed class CsvCameraListProvider : CsvCameraProvider<ListPlatformData, ListRevisionData, ListSourceData>, IInnerCameraListProvider
     {
         public IDictionary<string, ListPlatformData> GetCameraList(string path, string categoryName)
         {

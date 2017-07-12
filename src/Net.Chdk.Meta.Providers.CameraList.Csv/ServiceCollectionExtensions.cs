@@ -7,7 +7,7 @@ namespace Net.Chdk.Meta.Providers.CameraList.Csv
         public static IServiceCollection AddCsvCameraListProvider(this IServiceCollection serviceCollection)
         {
             return serviceCollection
-                .AddSingleton<ICameraListProvider, CsvCameraListProvider>();
+                .AddSingleton<IInnerCameraListProvider, CsvCameraListProvider>();
         }
     }
 }

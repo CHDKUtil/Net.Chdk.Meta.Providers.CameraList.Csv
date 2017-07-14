@@ -15,7 +15,7 @@ namespace Net.Chdk.Meta.Providers.CameraList.Csv
         protected override ListRevisionData GetRevisionData(string[] split)
         {
             var revision = base.GetRevisionData(split);
-            revision.Skip = "SKIP_AUTOBUILD".Equals(split[4], StringComparison.InvariantCulture);
+            revision.Skip = "SKIP_AUTOBUILD".Equals(split[4], StringComparison.Ordinal);
             revision.Status = split[2].ToLowerInvariant();
             return revision;
         }
